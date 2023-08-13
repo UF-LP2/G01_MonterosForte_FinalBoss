@@ -1,36 +1,34 @@
-import sys
-sys.path.append(r"src")
-import archivos
-import archivos
-import Ship, Cargo, Cruise
+
+from src.archivos import readFile
+from src.Ship import Ship
+from src.Cruise import Cruise
+from src.Cargo import Cargo
+
 
 def main() -> None:
 
- lista = archivos.readFile()
-
+ lista = readFile()
  for i in range(1, len(lista)):
-    if lista[i][0] and lista[i][1] and lista[i][2] and lista[i][3]:
+   if lista[i][0] and lista[i][1] and lista[i][2] and lista[i][3]:
       # estan todas las columnas llenas en esa posicion --> CARGO
-      barcoCargo = Cargo(lista[i][0], lista[i][1], lista[i][2], lista[i][3])
-
+      barcoCargo = Cargo(float(lista[i][0]), float(lista[i][1]), float(lista[i][2]), float(lista[i][3]))
       try:
         barcoCargo.is_worth_it()
       except Exception as e:
-        print(str(e))
-
-
-    elif lista[i][0] and lista[i][1] and lista[i][2] and not lista[i][3]:
+        print(str(e))   
+        
+   elif lista[i][0] and lista[i][1] and lista[i][2] and not lista[i][3]:
       # estan solo cargadas las primeras tres columnas --> CRUISE
-      barcoCruise = Cruise(lista[i][0], lista[i][1], lista[i][2])
+      barcoCruise = Cruise(float(lista[i][0]), float(lista[i][1]), float(lista[i][2]))
 
       try:
         barcoCruise.is_worth_it()
       except Exception as e:
         print(str(e))
 
-    elif lista[i][0] and lista[i][1] and not lista[i][2] and not lista[i][3]:
+   elif lista[i][0] and lista[i][1] and not lista[i][2] and not lista[i][3]:
       # estan solo cargadas las primeras dos columnas --> SHIP
-      barcoShip = Ship(lista[i][0], lista[i][1])
+      barcoShip = Ship(float(lista[i][0]), float(lista[i][1]))
 
       try:
         barcoShip.is_worth_it()

@@ -1,4 +1,4 @@
-import Ship
+from src.Ship import Ship
 
 class Cruise(Ship):
    def __init__(self, passengers, draft, crew):
