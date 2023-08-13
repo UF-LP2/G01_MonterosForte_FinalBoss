@@ -1,13 +1,13 @@
-import Cruise
-import Cargo
-import Ship
+import sys
+sys.path.append(r"src")
 import archivos
-
+import archivos
+import Ship, Cargo, Cruise
 
 def main() -> None:
 
  lista = archivos.readFile()
- 
+
  for i in range(1, len(lista)):
     if lista[i][0] and lista[i][1] and lista[i][2] and lista[i][3]:
       # estan todas las columnas llenas en esa posicion --> CARGO
