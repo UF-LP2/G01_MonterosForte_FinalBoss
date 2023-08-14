@@ -6,8 +6,6 @@ class Cruise(Ship):
       self.passengers = passengers
 
    def is_worth_it(self) ->float:
-      self.draft - self.passengers*2.25
-      self.draft - self.crew*1.5
-      
-      return self.draft 
+      borradorFinal = self.draft - self.passengers*2.25 - self.crew*1.5
+      return borradorFinal
 

@@ -7,8 +7,6 @@ class Ship:
     self.draft = draft
     self.crew = crew
   def is_worth_it(self) ->float:
-   if self.draft - (self.crew*1.5):
-     raise Exception("No vale la pena")
-   else:
-     return self.draft
+    borradorFinal = self.draft - self.crew*1.5
+    return borradorFinal
 

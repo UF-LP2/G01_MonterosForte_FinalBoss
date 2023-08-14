@@ -9,29 +9,45 @@ def main() -> None:
 
  lista = readFile()
  for i in range(1, len(lista)):
-   if lista[i][0] and lista[i][1] and lista[i][2] and lista[i][3]:
+   if lista[i][0] and lista[i][1] and lista[i][2] and lista[i][3] and (lista[i][3] == "0.25" or lista[i][3] == "0.5" or lista[i][3] == "1"):
       # estan todas las columnas llenas en esa posicion --> CARGO
-      barcoCargo = Cargo(float(lista[i][0]), float(lista[i][1]), float(lista[i][2]), float(lista[i][3]))
+      print(lista[i][0])
+      barcoCargo = Cargo(float(lista[i][2]), float(lista[i][3]), float(lista[i][0]), float(lista[i][1]))
       try:
-        barcoCargo.is_worth_it()
+        pesoFinal = barcoCargo.is_worth_it()
+        if pesoFinal < 20:
+          print("No merece ser saqueado.") #"Se deberá elevar un error de cantidad"
+        else:
+          print("Merece ser saqueado.")
       except Exception as e:
         print(str(e))   
         
-   elif lista[i][0] and lista[i][1] and lista[i][2] and not lista[i][3]:
+   elif lista[i][0] and lista[i][1] and lista[i][2] and  (lista[i][3] != "0.25" or lista[i][3] != "0.5" or lista[i][3] != "1"):
       # estan solo cargadas las primeras tres columnas --> CRUISE
-      barcoCruise = Cruise(float(lista[i][0]), float(lista[i][1]), float(lista[i][2]))
+      print(lista[i][0])
+      barcoCruise = Cruise(float(lista[i][2]), float(lista[i][0]), float(lista[i][1]))
 
       try:
-        barcoCruise.is_worth_it()
+        pesoFinal = barcoCruise.is_worth_it()
+        if pesoFinal < 20:
+          print("No merece ser saqueado.") #"Se deberá elevar un error de cantidad"
+        else:
+          print("Merece ser saqueado.")
+
       except Exception as e:
         print(str(e))
 
    elif lista[i][0] and lista[i][1] and not lista[i][2] and not lista[i][3]:
       # estan solo cargadas las primeras dos columnas --> SHIP
+      print(lista[i][0])
       barcoShip = Ship(float(lista[i][0]), float(lista[i][1]))
 
       try:
-        barcoShip.is_worth_it()
+        pesoFinal = barcoShip.is_worth_it()
+        if pesoFinal < 20:
+          print("No merece ser saqueado.") #"Se deberá elevar un error de cantidad"
+        else:
+          print("Merece ser saqueado.")
       except Exception as e:
         print(str(e))
 
