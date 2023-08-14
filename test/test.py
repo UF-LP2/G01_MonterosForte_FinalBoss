@@ -1,6 +1,9 @@
-import Ship 
-import Cruise
-import Cargo
+import sys
+sys.path.append(r"C:\Users\Isabella\Documents\GitHub\TP FINAL BOSS\G01_MonterosForte_FinalBoss")
+
+from src.Ship import Ship
+from src.Cargo import Cargo
+from src.Cruise import Cruise
 
 def test_Ship():
     barco1 = Ship(200, 10)
