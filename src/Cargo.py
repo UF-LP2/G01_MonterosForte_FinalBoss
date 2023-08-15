@@ -20,6 +20,6 @@ class Cargo(Ship):
            raise ValueError # Por si en quality hay un valor incorrecto
        
        if borradorFinal < 20:
-           raise Exception("No merece ser saqueado.")
+           raise ValueError("No merece ser saqueado.")
 
        return borradorFinal

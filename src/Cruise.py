@@ -8,7 +8,7 @@ class Cruise(Ship):
    def is_worth_it(self) ->float:
       borradorFinal = self.draft - self.passengers*2.25 - self.crew*1.5
       if borradorFinal < 20:
-         raise Exception("No merece ser saqueado.")
+         raise ValueError("No merece ser saqueado.")
 
       return borradorFinal
 
